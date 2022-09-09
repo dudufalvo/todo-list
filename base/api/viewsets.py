@@ -84,8 +84,29 @@ def topic_list(request, format=None):
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        # create a new topic and serialize it
-        serializer = TopicSerializer(data=request.data)
+        # validate the header Authorization and if it's not valid throw an error
+        if 'Authorization' not in request.headers:
+            return Response(status=status.HTTP_401_UNAUTHORIZED, data={'message': 'No Authorization token given in Headers!'})
+        
+        # get the token from the header Authorization
+        token = request.headers['Authorization']
+        
+        # verify if the token is valid and if it's not valid throw an error
+        try:
+            # verify the token inside google
+            idinfo = id_token.verify_oauth2_token(token, requests.Request(), CLIENT_ID)
+            userid = idinfo['sub']
+            
+            # verify if there is a user
+            if userid:
+                # set the data's user as the one verified
+                request.data['user'] = userid
+
+                # create a new question and serialize it with the object request.data
+                serializer = TopicSerializer(data=request.data)
+
+        except ValueError:
+            return Response(status=status.HTTP_401_UNAUTHORIZED, data={'message': 'Invalid Authorization token given in Headers!'})
 
         # verifies if the serialized data is valid and, if yes, save it
         if serializer.is_valid():

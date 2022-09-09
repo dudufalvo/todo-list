@@ -13,20 +13,23 @@ const NewTopic = () => {
     }
 
     const handleSubmit = (event) => {
-        const token = localStorage.getItem('Authorization')
-        axios.post(`http://127.0.0.1:8000/api/topics/`, {
-            'body': input,
-            'created': new Date(),
-            'updated': new Date(),
-            'level': level
-        },{
-            headers: {
-                "Authorization": token,
-                "Content-Type": 'application/json'
-            }
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err))
+        if (input) {
+            console.log('posting...')
+            const token = localStorage.getItem('Authorization')
+            axios.post(`http://127.0.0.1:8000/api/topics/`, {
+                'body': input,
+                'created': new Date(),
+                'updated': new Date(),
+                'level': level
+            },{
+                headers: {
+                    "Authorization": token,
+                    "Content-Type": 'application/json'
+                }
+            })
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
+        }
     }
 
     return (

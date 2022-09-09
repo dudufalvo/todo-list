@@ -16,8 +16,13 @@ const HomePage = () => {
     useEffect(() => {
         const fetchTopic = () => {
             if (user) {
-                axios.get(`http://127.0.0.1:8000/api/topics-filter/${user.sub}`)
-                .then(res => console.log(res))
+                const topicAPI = `http://127.0.0.1:8000/api/topics-filter/${user.sub}`
+                const getTopics = axios.get(topicAPI)
+
+                axios.all([getTopics])
+                .then(axios.spread((...allData) => {
+                    setTopics(allData[0].data)
+                }))
                 .catch(err => console.log(err))
             }
         }
