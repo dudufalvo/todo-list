@@ -95,13 +95,13 @@ def topic_list(request, format=None):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def topic(request, token, format=None):
+def topic(request, id, format=None):
     ''' view that manipulates a specific topic, selected by it's id,
         in a way that is possible to get it's data, update or delete it'''
 
     # verifies if the topic exists through it's id and return a 404 ERROR if not
     try:
-        topic = Topic.objects.get(id=token)
+        topic = Topic.objects.get(id=id)
     except Topic.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
@@ -122,3 +122,14 @@ def topic(request, token, format=None):
         # delete the topic and returns a no content error
         topic.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+@api_view(['GET'])
+def topics_filter(request, token, format=None):
+    ''' view that, passed a user token, filters all the topics 
+    that and returns a array of topics created by this user'''
+
+    if request.method == 'GET':
+        # get all the topics on the data base and serialize the data to return it
+        topics = Topic.objects.filter(user=token)
+        serializer = TopicSerializer(topics, many=True)
+        return Response(serializer.data)
