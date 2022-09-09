@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import Divider from '@mui/material/Divider';
 import NavBar from '../components/NavBar';
 import NewTopic from '../components/NewTopic';
 import { getUserFromLocalStorage } from '../utility/utils';
 import axios from 'axios';
+import Topic from '../components/Topic';
 
 const HomePage = () => {
     const [user, setUser] = useState()
@@ -34,6 +34,9 @@ const HomePage = () => {
     <div className='app-container'>
         <NavBar />
         <NewTopic />
+        <div className='topics-list'>
+            {topics?.map((topic, index) => (<Topic key={index} topic={topic} />))}
+        </div>
     </div>
     )
 }

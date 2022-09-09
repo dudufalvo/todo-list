@@ -33,17 +33,19 @@ const NewTopic = () => {
     }
 
     return (
-    <div className='center-row'>
-        <form className='todo-form'>
-            <BsCheck className='todo-form-img'/>
-            <input
-                type='text'
-                placeholder='create new topic...'
-                onChange={handleChange}
-                onClick={()=>{setIsOpen(!isOpen)}}
-            />
-            <button className='todo-form-btn' onClick={handleSubmit} ><IoMdSend/></button>
-        </form>
+    <div className='space'>
+        <div className='center-row space'>
+            <form className='todo-form'>
+                <BsCheck className='todo-form-img'/>
+                <input
+                    type='text'
+                    placeholder='create new topic...'
+                    onChange={handleChange}
+                    onClick={()=>{setIsOpen(!isOpen)}}
+                />
+                <button className='todo-form-btn' onClick={handleSubmit} ><IoMdSend/></button>
+            </form>
+        </div>
     </div>
     )
 }
