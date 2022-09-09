@@ -90,6 +90,7 @@ body {
 .todo-form-img{
   height: 100%;
   font-size: 30px;
+  color: #161a2b;
 }
 
 .todo-form > input {
@@ -101,6 +102,7 @@ body {
 }
 
 .todo-form-btn {
+  color: #161a2b;
   font-size: 20px;
   background: aliceblue;
   border: none;

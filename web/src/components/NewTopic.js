@@ -37,6 +37,7 @@ const NewTopic = () => {
                 type='text'
                 placeholder='create new topic...'
                 onChange={handleChange}
+                onClick={()=>{setIsOpen(!isOpen)}}
             />
             <button className='todo-form-btn' onClick={handleSubmit} ><IoMdSend/></button>
         </form>
