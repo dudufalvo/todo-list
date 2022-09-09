@@ -106,8 +106,28 @@ body {
   font-size: 20px;
   background: aliceblue;
   border: none;
+  margin-left: 5px;
 }
 
 .todo-form-btn:hover {
   cursor: pointer;
+}
+
+.topic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.todo-body {
+  font-size: 18px;
+  color: #161a2b;
 }
