@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { GoTasklist } from 'react-icons/go'
+import { getUserFromLocalStorage } from '../utility/utils'
 
 const NavBar = () => {
     const [user, setUser] = useState()
 
     useEffect(() => {
-        setUser(JSON.parse(localStorage.getItem('user')))
+        setUser(getUserFromLocalStorage())
     }, [])
     
     return (
