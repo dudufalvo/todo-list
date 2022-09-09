@@ -6,6 +6,7 @@ from base.models import NewUser, Topic
 from google.oauth2 import id_token
 from google.auth.transport import requests
 
+CLIENT_ID = "653126086705-5udde9tgngcjsceutqr0fi3ejm6i48fs.apps.googleusercontent.com"
 
 @api_view(['GET'])
 def get_routes(request, format=None):

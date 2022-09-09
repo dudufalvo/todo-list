@@ -1,13 +1,111 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Titan+One&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background: linear-gradient(
+    90deg,
+    rgba(48, 16, 255, 1) 0%,
+    rgba(100, 115, 255, 1) 100%
+  );
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 520px;
+  min-height: 600px;
+  background: #161a2b;
+  text-align: center;
+  margin: 30px auto;
+  border-radius: 10px;
+  padding-bottom: 32px;
+}
+
+.space {
+  margin-bottom: 20px;
+}
+
+.center-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.center-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 500px;
+}
+
+.logo-text {
+  font-family: 'Titan One', cursive;
+  font-size: 45px;
+  color: aliceblue;
+  margin-left: 10px;
+}
+
+.logo-image {
+  margin-top: 5px;
+  font-size: 45px;
+  color: aliceblue;
+}
+
+.navbar {
+  display: flex;
+  padding: 25px;
+  justify-content: space-between;
+}
+
+.user-pic {
+  height: 60px;
+  border-radius: 50%;
+}
+
+.user-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  font-size: 20px;
+  color: aliceblue;
+}
+
+.todo-form {
+  display: flex;
+  height: 50px;
+  width: 80%;
+  background: aliceblue;
+  border-radius: 10px;
+}
+
+.todo-form-img{
+  height: 100%;
+  font-size: 30px;
+}
+
+.todo-form > input {
+  width: 85%;
+  font-size: 18px;
+  background: aliceblue;
+  border: none;
+  outline: none;
+}
+
+.todo-form-btn {
+  font-size: 20px;
+  background: aliceblue;
+  border: none;
+}
+
+.todo-form-btn:hover {
+  cursor: pointer;
 }
