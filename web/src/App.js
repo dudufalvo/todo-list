@@ -11,14 +11,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        {!userToken ? (
-          <>
-            <Route path="/" element={<LoginPage />} />
-          </>
-
+      {!userToken ? (
+            <Route index element={<LoginPage />} />
         ) : (
           <>
-            <Route path="/login/" element={<LoginPage />} />
             <Route path="/home/" element={<HomePage />} />
           </>
         )}
